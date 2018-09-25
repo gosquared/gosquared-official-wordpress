@@ -36,25 +36,25 @@ if ( ! defined ( 'ABSPATH' ) ) {
 class GoSquaredOfficial
 {
 	function __construct() {
-		add_action( 'plugins_loaded', array( $this, 'loadTracker' ) );
+		add_action( 'plugins_loaded', array( $this, 'load_tracker' ) );
 	}
 
-	function loadTracker() {
+	function load_tracker() {
+	require_once 'includes/gosquared-official-options.php';
+ 	$this->gsOfficialSettings = new GoSquaredOptionsPage;
 	 add_action( 'wp_footer', array( $this, 'gs_snippet' ) );
 	}
 
-	 function gsSnippet() { 
-
+	 function gs_snippet()  { ?>
     <script>
       !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
       arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
       d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
       insertBefore(d,q)}(window,document,'script','_gs');
-     _gs('GSN-628668-H'); 
-    </script>
-  
-  } 
 
+			_gs('<?php echo $this->gsOfficialSettings->get( 'gosquared_site_token' ); ?>');
+    </script>
+	<?php }
 }
 
 if ( class_exists( 'GoSquaredOfficial' ) ) {
