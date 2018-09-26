@@ -43,6 +43,7 @@ class GoSquaredOfficial
 	require_once 'includes/gosquared-official-options.php';
  	$this->gsOfficialSettings = new GoSquaredOptionsPage;
 	 add_action( 'wp_footer', array( $this, 'gs_snippet' ) );
+	 add_action( 'gosquared_identify_snippet', array( $this, 'add_identify' ) );
 	}
 
 	 function gs_snippet()  { ?>
@@ -53,9 +54,21 @@ class GoSquaredOfficial
       insertBefore(d,q)}(window,document,'script','_gs');
 
 			_gs('<?php echo $this->gsOfficialSettings->get( 'gosquared_site_token' ); ?>');
+			<?php do_action( 'gosquared_identify_snippet' ); ?>
     </script>
+
 	<?php }
+
+	public function add_identify() { global $current_user;  wp_get_current_user(); ?>
+	_gs('identify', {
+	username: '<?php echo $current_user->user_login; ?>',
+	email:    '<?php echo $current_user->user_email; ?>'
+});
+<?php }
+
+
 }
+
 
 if ( class_exists( 'GoSquaredOfficial' ) ) {
 	$gsOfficial = new GoSquaredOfficial();

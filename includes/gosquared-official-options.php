@@ -18,6 +18,8 @@ class GoSquaredOptionsPage {
 
 public function settings_page(){
     register_setting( 'gosquared_official_settings_group', 'gosquared_site_token' );
+    register_setting( 'gosquared_official_settings_group', 'gosquared_identify' );
+
     add_settings_section(
       'gosquared_settings_section',
       'GoSquared Settings',
@@ -31,10 +33,17 @@ public function settings_page(){
   		'gosquared-official-plugin',
   		'gosquared_settings_section'
   	);
+    add_settings_field(
+      'gosquared_identify',
+      'Activate GoSquared People Tracking',
+       array( $this, 'gosquared_identify' ),
+      'gosquared-official-plugin',
+      'gosquared_settings_section'
+    );
 }
 
  public function get( $key ) {
-    return get_option( 'gosquared_site_token' );
+    return get_option( $key );
   }
 
   public function my_options_page() {
@@ -51,8 +60,12 @@ public function settings_page(){
   <?php
 }
 
+public function gosquared_identify() {
+echo "<input name='gosquared_identify' id='gosquared_identify' type='checkbox' value= '1'" . checked(1, $this->get( 'gosquared_identify' ), false) . "/>";
+   }
+
 public function site_token() {
-  $token = esc_attr( $this->get( 'gosquared_site_token' ) );
+  $token = esc_attr( $this->get( 'gosquared_site_token' ));
   echo "<input type='text' name='gosquared_site_token' value='$token' />";
 }
 
