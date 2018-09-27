@@ -39,14 +39,21 @@ class GoSquaredOfficial
 		add_action( 'plugins_loaded', array( $this, 'load_tracker' ) );
 	}
 	function load_tracker() {
-	require_once 'includes/gosquared-official-options.php';
- 	$this->gsOfficialSettings = new GoSquaredOptionsPage;
-	 add_action( 'wp_footer', array( $this, 'gs_snippet' ) );
-	 if( 1 == absint( $this->gsOfficialSettings->get( 'gosquared_identify' ) ) ) {
-	 add_action( 'gosquared_identify_snippet', array( $this, 'add_identify' ) );
-	 }
-	}
 
+	require_once 'includes/gosquared-official-options.php';
+	require_once 'includes/gosquared-official-gravity-forms-integration.php';
+
+ 	$this->gsOfficialSettings = new GoSquaredOptionsPage;
+  $this->gsGfint = new GoSquaredGFIntegration;
+
+	 add_action( 'wp_head', array( $this, 'gs_snippet' ) );
+	 if( 1 == absint( $this->gsOfficialSettings->get( 'gosquared_gravity_forms' ) ) ) {
+	 $this->gsGfint = new GoSquaredGFIntegration;
+ 		}
+		if( 1 == absint( $this->gsOfficialSettings->get( 'gosquared_identify' ) ) ) {
+ 	 add_action( 'gosquared_identify_snippet', array( $this, 'add_identify' ) );
+  		}
+	}
 	 function gs_snippet()  { ?>
     <script>
       !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
@@ -56,30 +63,27 @@ class GoSquaredOfficial
 			_gs('<?php echo $this->gsOfficialSettings->get( 'gosquared_site_token' ); ?>');
 			<?php do_action( 'gosquared_identify_snippet' ); ?>
     </script>
-
 	<?php }
 
-	public function add_identify() { global $current_user;  wp_get_current_user(); ?>
+public function add_identify() { global $current_user;  wp_get_current_user(); ?>
+var userEmail = '<?php echo $current_user->user_email; ?>'
+var userFirstName = <?php echo json_encode($current_user->user_firstname ); ?>;
+var userLastName = <?php echo json_encode($current_user->user_lastname ); ?>;
+var userUsername = <?php echo json_encode($current_user->user_login); ?>;
 
-	var userEmail = '<?php echo $current_user->user_email; ?>'
-  var userFirstName = <?php echo json_encode($current_user->user_firstname ); ?>;
-  var userLastName = <?php echo json_encode($current_user->user_lastname ); ?>;
-  var userUsername = <?php echo json_encode($current_user->user_login); ?>;
+if (userEmail && userEmail !== null && userEmail !== '') {
+_gs('identify', {
+email:    userEmail,
+username: userUsername,
+first_name: userFirstName,
+last_name:  userLastName,
 
-	if (userEmail && userEmail !== null && userEmail !== '') {
-	_gs('identify', {
-	email:    userEmail,
-	username: userUsername,
-	first_name: userFirstName,
-	last_name:  userLastName,
-
-	});
-	}
+});
+}
 <?php }
 
 
 }
-
 
 if ( class_exists( 'GoSquaredOfficial' ) ) {
 	$gsOfficial = new GoSquaredOfficial();
