@@ -53,7 +53,6 @@ class GoSquaredOfficial
       arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
       d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
       insertBefore(d,q)}(window,document,'script','_gs');
-
 			_gs('<?php echo $this->gsOfficialSettings->get( 'gosquared_site_token' ); ?>');
 			<?php do_action( 'gosquared_identify_snippet' ); ?>
     </script>
