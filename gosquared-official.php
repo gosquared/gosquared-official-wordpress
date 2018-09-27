@@ -38,12 +38,13 @@ class GoSquaredOfficial
 	function __construct() {
 		add_action( 'plugins_loaded', array( $this, 'load_tracker' ) );
 	}
-
 	function load_tracker() {
 	require_once 'includes/gosquared-official-options.php';
  	$this->gsOfficialSettings = new GoSquaredOptionsPage;
 	 add_action( 'wp_footer', array( $this, 'gs_snippet' ) );
+	 if( 1 == absint( $this->gsOfficialSettings->get( 'gosquared_identify' ) ) ) {
 	 add_action( 'gosquared_identify_snippet', array( $this, 'add_identify' ) );
+	 }
 	}
 
 	 function gs_snippet()  { ?>
@@ -60,10 +61,21 @@ class GoSquaredOfficial
 	<?php }
 
 	public function add_identify() { global $current_user;  wp_get_current_user(); ?>
+
+	var userEmail = '<?php echo $current_user->user_email; ?>'
+  var userFirstName = <?php echo json_encode($current_user->user_firstname ); ?>;
+  var userLastName = <?php echo json_encode($current_user->user_lastname ); ?>;
+  var userUsername = <?php echo json_encode($current_user->user_login); ?>;
+
+	if (userEmail && userEmail !== null && userEmail !== '') {
 	_gs('identify', {
-	username: '<?php echo $current_user->user_login; ?>',
-	email:    '<?php echo $current_user->user_email; ?>'
-});
+	email:    userEmail,
+	username: userUsername,
+	first_name: userFirstName,
+	last_name:  userLastName,
+
+	});
+	}
 <?php }
 
 
