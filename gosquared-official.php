@@ -35,6 +35,7 @@ if ( ! defined ( 'ABSPATH' ) ) {
 
 class GoSquaredOfficial
 {
+
 	function __construct() {
 		add_action( 'plugins_loaded', array( $this, 'load_tracker' ) );
 	}
@@ -44,15 +45,16 @@ class GoSquaredOfficial
 	require_once 'includes/gosquared-official-gravity-forms-integration.php';
 
  	$this->gsOfficialSettings = new GoSquaredOptionsPage;
-  $this->gsGfint = new GoSquaredGFIntegration;
 
 	 add_action( 'wp_head', array( $this, 'gs_snippet' ) );
-	 if( 1 == absint( $this->gsOfficialSettings->get( 'gosquared_gravity_forms' ) ) ) {
-	 $this->gsGfint = new GoSquaredGFIntegration;
- 		}
+
+		$this->project_token = $this->gsOfficialSettings->get( 'gosquared_site_token' );
 		if( 1 == absint( $this->gsOfficialSettings->get( 'gosquared_identify' ) ) ) {
- 	 add_action( 'gosquared_identify_snippet', array( $this, 'add_identify' ) );
+ 	  add_action( 'gosquared_identify_snippet', array( $this, 'add_identify' ) );
   		}
+			if( 1 == absint( $this->gsOfficialSettings->get( 'gosquared_gravity_forms' ) ) ) {
+			$this->gsGfint = new GoSquaredGFIntegration($this->project_token);
+			 }
 	}
 	 function gs_snippet()  { ?>
     <script>

@@ -2,17 +2,21 @@
 
 class GoSquaredGFIntegration {
 
-  public function __construct() {
+  private $project_token;
+
+  public function __construct($project_token) {
+    $this->project_token = $project_token;
+    echo "<script>console.log('$this->project_token')</script>";
     add_action( 'gform_after_submission',  array($this, 'send'), 10, 2 );
   }
 
   public function send($entry, $form) {
     $standard_props = array(
         'Email' => 'email',
+        'Email Address' => 'email',
         'Name'=> 'name',
         'First Name' => 'first_name',
         'Last Name' => 'last_name',
-        'Username' => 'username',
         'Description' => 'description',
         'Phone' => 'phone',
         'Company' => 'company_name',
@@ -50,8 +54,9 @@ class GoSquaredGFIntegration {
          d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
          insertBefore(d,q)}(window,document,'script','_gs');
 
-        _gs('GSN-628668-H');
+        _gs('<?php echo $this->project_token; ?>');
         }
+
         _gs('identify', properties);
   </script>
 <?php }
