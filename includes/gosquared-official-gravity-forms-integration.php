@@ -14,6 +14,7 @@ class GoSquaredGFIntegration {
     $standard_props = array(
         'Email' => 'email',
         'Email Address' => 'email',
+        'Your Email Address' => 'email',
         'Name'=> 'name',
         'First Name' => 'first_name',
         'Last Name' => 'last_name',
@@ -30,7 +31,26 @@ class GoSquaredGFIntegration {
         var properties = {};
         properties.custom = {};
         <?php
-        foreach($fields as $f){
+        foreach($fields as $f) {
+           if (is_array($f["inputs"])) {
+            foreach($field["inputs"] as $input) {
+              $object_key = $standard_props[$input['label']];
+              $object_value = $entry[$input['id']];
+              if(isset( $standard_props[$input['label']] )){
+                  if($object_value != ""){
+                      ?>
+                      properties['<?php echo $object_key ?>'] = '<?php echo $object_value ?>';
+                      <?php
+                  }
+              } else {
+                if ($object_value != ""){
+                    ?>
+                    properties.custom['<?php echo $input['label'] ?>'] = '<?php echo $object_value ?>';
+                    <?php
+                }
+              }
+            }
+          }
           $object_key = $standard_props[$f['label']];
           $object_value = $entry[$f['id']];
             if(isset( $standard_props[$f['label']] )){
