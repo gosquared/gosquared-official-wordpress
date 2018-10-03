@@ -32,8 +32,14 @@ class GoSquaredGFIntegration {
         properties.custom = {};
         <?php
         foreach($fields as $f) {
+          if ($f['type']==='creditcard' || $f['type']==='password' ) { // skip
+            continue;
+          }
            if (is_array($f["inputs"])) {
-            foreach($field["inputs"] as $input) {
+            foreach($f["inputs"] as $input) {
+                ?>
+                console.log('<?php echo json_encode($f) ?>')
+                <?php
               $object_key = $standard_props[$input['label']];
               $object_value = $entry[$input['id']];
               if(isset( $standard_props[$input['label']] )){
@@ -51,6 +57,9 @@ class GoSquaredGFIntegration {
               }
             }
           }
+          ?>
+          console.log('<?php echo json_encode($f) ?>')
+          <?php
           $object_key = $standard_props[$f['label']];
           $object_value = $entry[$f['id']];
             if(isset( $standard_props[$f['label']] )){
