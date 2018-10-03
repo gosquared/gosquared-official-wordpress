@@ -25,6 +25,9 @@ class GoSquaredGFIntegration {
         'Company Industry' => 'company_industry',
         'Job Title' => 'company_position',
     );
+
+    $valid_types = array(text, website, phone, number, date, time, name, address, email);
+
     $fields = $form['fields'];
     ?>
     <script>
@@ -37,6 +40,7 @@ class GoSquaredGFIntegration {
           }
            if (is_array($f["inputs"])) {
             foreach($f["inputs"] as $input) {
+              if (in_array($input['type'], $valid_types)) {
                 ?>
                 console.log('<?php echo json_encode($f) ?>')
                 <?php
@@ -53,10 +57,12 @@ class GoSquaredGFIntegration {
                     ?>
                     properties.custom['<?php echo $input['label'] ?>'] = '<?php echo $object_value ?>';
                     <?php
+                  }
                 }
               }
             }
           }
+          if (in_array($f['type'], $valid_types)) {
           ?>
           console.log('<?php echo json_encode($f) ?>')
           <?php
@@ -75,6 +81,7 @@ class GoSquaredGFIntegration {
                   <?php
               }
             }
+          }
         }
         ?>
         if(!window._gs) {
