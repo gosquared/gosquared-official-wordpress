@@ -69,9 +69,9 @@ class GoSquaredOfficial
 
 public function add_identify() { global $current_user;  wp_get_current_user(); ?>
 var userEmail = '<?php echo $current_user->user_email; ?>'
-var userFirstName = <?php echo json_encode($current_user->user_firstname ); ?>;
-var userLastName = <?php echo json_encode($current_user->user_lastname ); ?>;
-var userUsername = <?php echo json_encode($current_user->user_login); ?>;
+var userFirstName = '<?php echo json_encode($current_user->user_firstname ); ?>';
+var userLastName = '<?php echo json_encode($current_user->user_lastname ); ?>';
+var userUsername = '<?php echo json_encode($current_user->user_login); ?>';
 
 if (userEmail && userEmail !== null && userEmail !== '') {
 _gs('identify', {

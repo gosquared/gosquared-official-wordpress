@@ -4,13 +4,18 @@ class GoSquaredGFIntegration {
 
   private $project_token;
 
+  private $standard_props;
+
+  private $valid_types;
+
+  private $properties = array();
+
   public function __construct($project_token) {
     $this->project_token = $project_token;
-    add_action( 'gform_after_submission',  array($this, 'send'), 10, 2 );
-  }
+    $this->properties['custom']=array();
 
-  public function send($entry, $form) {
-    $standard_props = array(
+    add_action( 'gform_after_submission',  array($this, 'send'), 10, 2 );
+    $this->standard_props = array(
         'Email' => 'email',
         'Name'=> 'name',
         'First Name' => 'first_name',
@@ -22,68 +27,41 @@ class GoSquaredGFIntegration {
         'Company Industry' => 'company_industry',
         'Job Title' => 'company_position',
     );
+    $this->valid_types = array('text', 'website', 'phone', 'number', 'date', 'time', 'name', 'address', 'email', 'username');
+  }
 
-    $valid_types = array(text, website, phone, number, date, time, name, address, email, username);
+  public function map_properties($entry, $form_input) {
+    if (isset($entry[$form_input['id']]) && $entry[$form_input['id']] != "") {
+    if(isset( $this->standard_props[$form_input['label']] )) {
+      $label = $this->standard_props[$form_input['label']];
+            $this->properties[$label] = $entry[$form_input['id']];
+    } else {
+          $this->properties['custom'][$form_input['label']] = $entry[$form_input['id']];
+      }
+    }
+  }
 
+  public function send($entry, $form) {
     $fields = $form['fields'];
     ?>
     <script>
-        var properties = {};
-        properties.custom = {};
         <?php
         foreach($fields as $f) {
-          if ($f['type']==='creditcard' || $f['type']==='password' ) { // skip
+          if ($f['type']==='creditcard' || $f['type']==='password' ) {
             continue;
           }
+           if (in_array($f['type'], $this->valid_types)) {
            if (is_array($f["inputs"])) {
             foreach($f["inputs"] as $input) {
-              if (in_array($input['type'], $valid_types)) {
-              $object_key = $standard_props[$input['label']];
-              $object_value = $entry[$input['id']];
-              if(isset( $standard_props[$input['label']] )){
-                  if($object_value != ""){
-                      ?>
-                      properties['<?php echo $object_key ?>'] = '<?php echo $object_value ?>';
-                      <?php
-                  }
-              } else {
-                if ($object_value != ""){
-                    ?>
-                    properties.custom['<?php echo $input['label'] ?>'] = '<?php echo $object_value ?>';
-                    <?php
-                    if ($f['type']==='email'){
-                        ?>
-                        properties['email'] = '<?php echo $object_value ?>';
-                        <?php
-                    }
-                  }
-                }
-              }
+              $this->map_properties($entry, $input);
             }
           }
-          if (in_array($f['type'], $valid_types)) {
-          $object_key = $standard_props[$f['label']];
-          $object_value = $entry[$f['id']];
-            if(isset( $standard_props[$f['label']] )){
-                if($object_value != ""){
-                    ?>
-                    properties['<?php echo $object_key ?>'] = '<?php echo $object_value ?>';
-                    <?php
-                }
-            } else {
-              if ($object_value != ""){
-                  ?>
-                  properties.custom['<?php echo $f['label'] ?>'] = '<?php echo $object_value ?>';
-                  <?php
-                  if ($f['type']==='email'){
-                      ?>
-                      properties['email'] = '<?php echo $object_value ?>';
-                      <?php
-                  }
-              }
-            }
+          $this->map_properties($entry, $f);
+          if ($f['type']==='email' && $entry[$f['id']] != ''){
+              $this->properties['email'] = $entry[$f['id']];
           }
         }
+      }
         ?>
         if(!window._gs) {
         !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
@@ -92,7 +70,7 @@ class GoSquaredGFIntegration {
          insertBefore(d,q)}(window,document,'script','_gs');
         _gs('<?php echo $this->project_token; ?>');
         }
-        _gs('identify', properties);
+        _gs('identify', <?php echo json_encode($this->properties); ?>);
   </script>
 <?php }
 
