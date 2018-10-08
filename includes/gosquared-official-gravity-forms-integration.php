@@ -39,6 +39,7 @@ class GoSquaredGFIntegration {
           $this->properties['custom'][$form_input['label']] = $entry[$form_input['id']];
       }
     }
+    return($this->properties);
   }
 
   public function send($entry, $form) {
@@ -71,7 +72,6 @@ class GoSquaredGFIntegration {
         _gs('<?php echo $this->project_token; ?>');
         }
         _gs('identify', <?php echo json_encode($this->properties); ?>);
-  </script>
-<?php }
+  </script><?php }
 
 }
