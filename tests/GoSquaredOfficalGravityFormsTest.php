@@ -5,7 +5,6 @@ class GoSquaredOfficalGravityFormsTestClass extends \WP_Mock\Tools\TestCase {
 
 	public function setUp() {
 		\WP_Mock::setUp();
-
 	}
 
 	public function testMappingFieldValuesToGoSquaredStandardProperties()
