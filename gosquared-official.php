@@ -29,15 +29,16 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-// if ( ! defined ( 'ABSPATH' ) ) {
-// 	die;
-// }
+if ( ! defined ( 'ABSPATH' ) ) {
+	die;
+}
 
 class GoSquaredOfficial
 {
 	function __construct() {
 		add_action( 'plugins_loaded', array( $this, 'load_tracker' ) );
 	}
+
 	function load_tracker() {
 
 	require_once 'includes/gosquared-official-options.php';

@@ -74,8 +74,6 @@ EOD;
   $this->expectOutputString($validReponse);
   }
 
-
-
 	public function tearDown() {
 		\WP_Mock::tearDown();
 	}
