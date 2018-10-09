@@ -44,34 +44,31 @@ class GoSquaredGFIntegration {
 
   public function send($entry, $form) {
     $fields = $form['fields'];
-    ?>
-    <script>
-        <?php
-        foreach($fields as $f) {
-          if ($f['type']==='creditcard' || $f['type']==='password' ) {
-            continue;
+      foreach($fields as $f) {
+        if ($f['type']==='creditcard' || $f['type']==='password' ) {
+          continue;
+        }
+        if (in_array($f['type'], $this->valid_types)) {
+        if (is_array($f["inputs"])) {
+          foreach($f["inputs"] as $input) {
+            $this->map_properties($entry, $input);
           }
-           if (in_array($f['type'], $this->valid_types)) {
-           if (is_array($f["inputs"])) {
-            foreach($f["inputs"] as $input) {
-              $this->map_properties($entry, $input);
-            }
-          }
-          $this->map_properties($entry, $f);
+        }
+        $this->map_properties($entry, $f);
           if ($f['type']==='email' && $entry[$f['id']] != ''){
-              $this->properties['email'] = $entry[$f['id']];
+            $this->properties['email'] = $entry[$f['id']];
           }
         }
       }
-        ?>
-        if(!window._gs) {
-        !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
-         arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
-         d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
-         insertBefore(d,q)}(window,document,'script','_gs');
-        _gs('<?php echo $this->project_token; ?>');
-        }
-        _gs('identify', <?php echo json_encode($this->properties); ?>);
-  </script><?php }
-
+    echo "<script>";
+    echo "if(!window._gs) {";
+    echo "!function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(";
+    echo "arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];";
+    echo "d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.";
+    echo "insertBefore(d,q)}(window,document,'script','_gs');";
+    echo "_gs('" . $this->project_token . "');";
+    echo "}";
+    echo "_gs('identify'," . json_encode($this->properties) . ")";
+    echo "</script>";
+  }
 }

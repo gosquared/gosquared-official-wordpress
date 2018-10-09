@@ -155,7 +155,7 @@ if ( ! function_exists( 'esc_attr_x' ) ) {
 }
 
 if ( ! function_exists( '_n' ) ) {
-	function _n() {
+	function esc_attr_x() {
 		return \WP_Mock\Handler::predefined_return_function_helper( __FUNCTION__, func_get_args() );
 	}
 }

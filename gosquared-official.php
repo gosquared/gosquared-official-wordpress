@@ -35,7 +35,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 class GoSquaredOfficial
 {
-
 	function __construct() {
 		add_action( 'plugins_loaded', array( $this, 'load_tracker' ) );
 	}
@@ -52,39 +51,34 @@ class GoSquaredOfficial
 		if( 1 == absint( $this->gsOfficialSettings->get( 'gosquared_identify' ) ) ) {
  	  add_action( 'gosquared_identify_snippet', array( $this, 'add_identify' ) );
   		}
-			if( 1 == absint( $this->gsOfficialSettings->get( 'gosquared_gravity_forms' ) ) ) {
+		if( 1 == absint( $this->gsOfficialSettings->get( 'gosquared_gravity_forms' ) ) ) {
 			$this->gsGfint = new GoSquaredGFIntegration($this->project_token);
 			 }
 	}
-	 function gs_snippet()  { ?>
-    <script>
-      !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
-      arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
-      d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
-      insertBefore(d,q)}(window,document,'script','_gs');
-			_gs('<?php echo $this->gsOfficialSettings->get( 'gosquared_site_token' ); ?>');
-			<?php do_action( 'gosquared_identify_snippet' ); ?>
-    </script>
-	<?php }
+	 function gs_snippet()  {
+    echo "<script>";
+    echo "!function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(";
+    echo  "arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];";
+    echo  "d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.";
+    echo  "insertBefore(d,q)}(window,document,'script','_gs');";
+		echo	"_gs('" . $this->gsOfficialSettings->get( 'gosquared_site_token' ) . "');";
+	  do_action( 'gosquared_identify_snippet' );
+  	echo  "</script>";
+	 }
 
-public function add_identify() { global $current_user;  wp_get_current_user(); ?>
-var userEmail = <?php echo json_encode($current_user->user_email); ?>
-var userFirstName = <?php echo json_encode($current_user->user_firstname ); ?>;
-var userLastName = <?php echo json_encode($current_user->user_lastname ); ?>;
-var userUsername = <?php echo json_encode($current_user->user_login); ?>;
+	public function add_identify() {
+		$current_user=wp_get_current_user();
+		$properties = array();
+		$this->properties['custom']=array();
+		$this->properties['email'] = $current_user->user_email;
+		$this->properties['first_name']= $current_user->user_firstname;
+		$this->properties['last_name'] = $current_user->user_lastname;
+		$this->properties['custom']['username']= $current_user->user_login;
 
-if (userEmail && userEmail !== null && userEmail !== '') {
-_gs('identify', {
-email:    userEmail,
-username: userUsername,
-first_name: userFirstName,
-last_name:  userLastName,
-
-});
-}
-<?php }
-
-
+		if ($this->properties['email'] && $this->properties['email'] !== null && $this->properties['email'] !== '') {
+			echo "_gs('identify'," . json_encode($this->properties) . ")";
+		}
+	}
 }
 
 if ( class_exists( 'GoSquaredOfficial' ) ) {
