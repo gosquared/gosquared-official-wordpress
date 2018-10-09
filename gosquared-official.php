@@ -45,15 +45,15 @@ class GoSquaredOfficial
 
  	$this->gsOfficialSettings = new GoSquaredOptionsPage;
 
-	 add_action( 'wp_head', array( $this, 'gs_snippet' ) );
+	add_action( 'wp_head', array( $this, 'gs_snippet' ) );
 
-		$this->project_token = $this->gsOfficialSettings->get( 'gosquared_site_token' );
+	$this->project_token = $this->gsOfficialSettings->get( 'gosquared_site_token' );
 		if( 1 == absint( $this->gsOfficialSettings->get( 'gosquared_identify' ) ) ) {
- 	  add_action( 'gosquared_identify_snippet', array( $this, 'add_identify' ) );
-  		}
+ 	  	add_action( 'gosquared_identify_snippet', array( $this, 'add_identify' ) );
+  	}
 		if( 1 == absint( $this->gsOfficialSettings->get( 'gosquared_gravity_forms' ) ) ) {
 			$this->gsGfint = new GoSquaredGFIntegration($this->project_token);
-			 }
+		}
 	}
 	 function gs_snippet()  {
     echo "<script>";
