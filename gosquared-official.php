@@ -85,3 +85,12 @@ class GoSquaredOfficial
 if ( class_exists( 'GoSquaredOfficial' ) ) {
 	$gsOfficial = new GoSquaredOfficial();
 }
+
+add_action( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'my_plugin_action_links' );
+
+function my_plugin_action_links( $links ) {
+$links = array_merge( array(
+	'<a href="' . esc_url( admin_url( '/options-general?page=gosquared-official-plugin.php' ) ) . '">' . __( 'Settings', 'textdomain' ) . '</a>'
+), $links );
+return $links;
+}
