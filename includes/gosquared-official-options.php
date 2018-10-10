@@ -100,7 +100,7 @@ echo "<p class='description'>With GoSquared user tracking enabled, you'll be abl
 
 public function gosquared_gravity_forms() {
   if (is_plugin_active('gravityforms/gravityforms.php') ) {
-  echo "<label for='gosquared_gravity_forms' class='gsLabel'>Enable Gravtiy Form integration</label>";
+  echo "<label for='gosquared_gravity_forms' class='gsLabel'>Enable Gravity Form integration</label>";
   echo "<input name='gosquared_gravity_forms' id='gosquared_gravity_forms' type='checkbox' value= '1'" . checked(1, $this->get( 'gosquared_gravity_forms' ), false) . "/>";
   echo "<p class='description'>With the GoSquared Gravity Forms integration enabled, you'll be able to track any leads captured through Gravity Forms</p>";
   } else {

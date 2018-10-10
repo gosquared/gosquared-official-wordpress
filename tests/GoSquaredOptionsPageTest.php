@@ -77,7 +77,7 @@ EOD;
   ));
   $gsOfficialSettings->gosquared_gravity_forms();
   $validReponse=<<<EOD
-<label for='gosquared_gravity_forms' class='gsLabel'>Enable Gravtiy Form integration</label><input name='gosquared_gravity_forms' id='gosquared_gravity_forms' type='checkbox' value= '1'/><p class='description'>With the GoSquared Gravity Forms integration enabled, you'll be able to track any leads captured through Gravity Forms</p>
+<label for='gosquared_gravity_forms' class='gsLabel'>Enable Gravity Form integration</label><input name='gosquared_gravity_forms' id='gosquared_gravity_forms' type='checkbox' value= '1'/><p class='description'>With the GoSquared Gravity Forms integration enabled, you'll be able to track any leads captured through Gravity Forms</p>
 EOD;
   $this->expectOutputString($validReponse);
   }
@@ -93,7 +93,7 @@ EOD;
   ));
   $gsOfficialSettings->gosquared_gravity_forms();
   $validReponse=<<<EOD
-<label for='gosquared_gravity_forms' class='gsLabel'>Enable Gravtiy Form integration</label><input name='gosquared_gravity_forms' id='gosquared_gravity_forms' type='checkbox' value= '1' checked="checked"/><p class='description'>With the GoSquared Gravity Forms integration enabled, you'll be able to track any leads captured through Gravity Forms</p>
+<label for='gosquared_gravity_forms' class='gsLabel'>Enable Gravity Form integration</label><input name='gosquared_gravity_forms' id='gosquared_gravity_forms' type='checkbox' value= '1' checked="checked"/><p class='description'>With the GoSquared Gravity Forms integration enabled, you'll be able to track any leads captured through Gravity Forms</p>
 EOD;
   $this->expectOutputString($validReponse);
   }
