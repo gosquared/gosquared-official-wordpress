@@ -34,7 +34,7 @@ Convert more customers with GoSquared Automation
 
 1. Upload `gosquared-official-wordpress.zip` to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Installed Plugins' menu in WordPress.
-3. Add your GoSquared Project Token to the 'Project Token' field in your settings.
+3. Add your GoSquared Project Token to the 'Project Token' field in the GoSquared section of your Wordpress settings.
 4. If you would like to track the website behaviour of your logged in users, make sure the 'Enable user tracking' checkbox is checked.
 5. If you have Gravity Forms installed and you would like to track the website behaviour of leads captured through Gravity Forms,  ensure the Enable 'Gravity Form integration' checkbox is checked.
 
