@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: (russellvaughan)
-Tags: analytics, live chat, lead capture, gosquared, chat
+Tags: analytics, live chat, lead capture, gosquared, chat, stats
 Requires at least: 4.2.0
 Tested up to: 4.98
 Requires PHP: 5.2.4
