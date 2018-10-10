@@ -86,7 +86,7 @@ if ( class_exists( 'GoSquaredOfficial' ) ) {
 	$gsOfficial = new GoSquaredOfficial();
 }
 
-add_action( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'my_plugin_action_links' );
+add_action( 'plugin_action_links_gosquared-official-plugin/gosquared-official.php', 'my_plugin_action_links' );
 
 function my_plugin_action_links( $links ) {
 $links = array_merge( array(
