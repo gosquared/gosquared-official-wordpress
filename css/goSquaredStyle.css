@@ -1,0 +1,22 @@
+.gsOptions {
+  padding: 10px;
+}
+
+.gsLabel {
+  font-weight: bold !important;
+  font-size: 16px !important;
+  padding-right: 5px !important;
+ }
+
+.gsSignUp {
+  font-size: 16px !important;
+}
+
+.gsGFform {
+  font-size: 16px !important;
+  margin: 0px !important;
+}
+
+.gsDashboardLink {
+  font-size: 16px !important;
+}
