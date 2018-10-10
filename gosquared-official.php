@@ -8,7 +8,7 @@ Plugin Name: GoSquared Official
 Plugin URI: http://github.com/gosquared/
 Description: This is the official GoSquared Plugin for lead capture, live chat and analytics
 Version: 1.0.0
-Author: Russell Vaughan
+Author: GoSquared
 License: GPLv2 or later
 Text Domain: GoSquared-Offical
 */
