@@ -5,8 +5,8 @@
 */
 /*
 Plugin Name: GoSquared Official
-Plugin URI: http://github.com/gosquared/
-Description: This is the official GoSquared Plugin for lead capture, live chat and analytics
+Plugin URI: https://github.com/gosquared/gosquared-official-wordpress
+Description: This is the official GoSquared Plugin for analytics, live chat and lead capture.
 Version: 1.0.0
 Author: GoSquared
 License: GPLv2 or later
