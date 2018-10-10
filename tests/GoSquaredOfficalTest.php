@@ -6,10 +6,10 @@ class GoSquaredOfficalTestClass extends \WP_Mock\Tools\TestCase {
 	public function setUp() {
 		\WP_Mock::setUp();
 		$current_user = new stdClass();
-		$current_user->user_email="russell@gosquared.com";
-		$current_user->user_firstname="russell";
-		$current_user->user_lastname="vaughan";
-		$current_user->user_login="russellvaughan";
+		$current_user->user_email="user@gosquared.com";
+		$current_user->user_firstname="user";
+		$current_user->user_lastname="name";
+		$current_user->user_login="username";
 		\WP_Mock::userFunction( 'wp_get_current_user', array(
 		'return' => $current_user,
 		));
@@ -30,7 +30,7 @@ class GoSquaredOfficalTestClass extends \WP_Mock\Tools\TestCase {
 	public function testAddIdentify() {
 		$gsOfficial = new GoSquaredOfficial();
 		$validReponse=<<<EOD
-_gs('identify',{"custom":{"username":"russellvaughan"},"email":"russell@gosquared.com","first_name":"russell","last_name":"vaughan"})
+_gs('identify',{"custom":{"username":"username"},"email":"user@gosquared.com","first_name":"user","last_name":"name"})
 EOD;
 		$this->expectOutputString($validReponse);
 		$gsOfficial -> add_identify();
