@@ -89,13 +89,13 @@ public function site_token() {
   $token = esc_attr( $this->get( 'gosquared_site_token' ));
   echo "<label for='gosquared_site_token' class='gsLabel'>GoSquared Project Token: </label>";
   echo "<input class='postform' type='text' name='gosquared_site_token' value='$token' />";
-  echo "<p class='description'>You can find your GoSquared project token the <a href='https://www.gosquared.com/setup/general' target='#'>project settings</a> of your GoSquared account.</p>";
+  echo "<p class='description'>You can find your GoSquared Project Token the <a href='https://www.gosquared.com/setup/general' target='#'>Project Settings</a> of your GoSquared account.</p>";
 }
 
 public function gosquared_identify() {
 echo "<label for='gosquared_identify' class='gsLabel'>Enable user tracking:  </label>";
 echo "<input name='gosquared_identify' id='gosquared_identify' type='checkbox' value= '1'" . checked(1, $this->get( 'gosquared_identify' ), false) . "/>";
-echo "<p class='description'>With GoSquared user tracking enabled, you'll be able to track the online behaviour of your website's logged in users, within your GoSquared User dashboard.</p>";
+echo "<p class='description'>With GoSquared user tracking enabled, you'll be able to track the online behaviour of your website's logged in users, within GoSquared People.</p>";
 }
 
 public function gosquared_gravity_forms() {
@@ -104,7 +104,7 @@ public function gosquared_gravity_forms() {
   echo "<input name='gosquared_gravity_forms' id='gosquared_gravity_forms' type='checkbox' value= '1'" . checked(1, $this->get( 'gosquared_gravity_forms' ), false) . "/>";
   echo "<p class='description'>With the GoSquared Gravity Forms integration enabled, you'll be able to track any leads captured through Gravity Forms</p>";
   } else {
-  echo "<p class='gsGFform'> Looking to capture leads through forms on your site? add the <a href='https://www.gravityforms.com/' target='#'> Gravity Forms</a> plugin to enable our integration.</p>";
+  echo "<p class='gsGFform'> Looking to capture leads through forms on your site? Add the <a href='https://www.gravityforms.com/' target='#'> Gravity Forms</a> plugin to enable our integration.</p>";
   echo "<p class='description'>With the GoSquared Gravity Forms integration enabled, you'll be able to track any leads captured through Gravity Forms.</p>";
   }
 }
