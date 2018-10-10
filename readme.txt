@@ -8,7 +8,7 @@ Stable tag: 4.98
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This is the official Wordpress plugin for the GoSquared. The leading platform for real time analytics, live chat and lead capture for your Wordpress site.
+This is the official Wordpress plugin for the GoSquared. The leading platform for real time analytics, live chat and lead capture for your website.
 
 == Description ==
 
