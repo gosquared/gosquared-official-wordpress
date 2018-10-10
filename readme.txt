@@ -16,7 +16,7 @@ GoSquared is the behavioural marketing platform for growing your Wordpress websi
 
 Discover what's happening on your Wordpress site with GoSquared Analytics.
   - Get a simple but powerful overview of your website traffic, in real-time
-  - Understand each visitors behaviour from the moment they land your website.  Quickly identify data such as:
+  - Understand each visitors behaviour from the moment they land your website. Quickly identify data such as:
     - What is your best performing content.
     - Which sites/campaigns are driving traffic to your website.
     - How engaged your website visitors are.
@@ -28,7 +28,6 @@ Capture more leads with the GoSquared Assistant
 Convert more customers with GoSquared Automation
   - Connect your Gravity Forms to collect important lead analytics for every prospect.
   - Automate messages and follow up based on each users behaviour.
-
 
 == Installation ==
 
