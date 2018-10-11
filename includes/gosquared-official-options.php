@@ -86,7 +86,7 @@ public function GSOF_settings_page(){
 }
 
 public function GSOF_site_token() {
-  $token = esc_attr( $this->GSOF_get( 'gosquared_site_token' ));
+  $token = esc_attr( $this->GSOF_get( 'GSOF_gosquared_site_token' ));
   echo "<label for='gosquared_site_token' class='gsLabel'>GoSquared Project Token: </label>";
   echo "<input class='postform' type='text' name='gosquared_site_token' value='$token' />";
   echo "<p class='description'>You can find your GoSquared Project Token the <a href='https://www.gosquared.com/setup/general' target='#'>Project Settings</a> of your GoSquared account.</p>";
@@ -94,14 +94,14 @@ public function GSOF_site_token() {
 
 public function GSOF_gosquared_identify() {
 echo "<label for='gosquared_identify' class='gsLabel'>Enable user tracking:  </label>";
-echo "<input name='gosquared_identify' id='gosquared_identify' type='checkbox' value= '1'" . checked(1, $this->GSOF_get( 'gosquared_identify' ), false) . "/>";
+echo "<input name='gosquared_identify' id='gosquared_identify' type='checkbox' value= '1'" . checked(1, $this->GSOF_get( 'GSOF_gosquared_identify' ), false) . "/>";
 echo "<p class='description'>With GoSquared user tracking enabled, you'll be able to track the online behaviour of your website's logged in users, within GoSquared People.</p>";
 }
 
 public function GSOF_gosquared_gravity_forms() {
   if (is_plugin_active('gravityforms/gravityforms.php') ) {
   echo "<label for='gosquared_gravity_forms' class='gsLabel'>Enable Gravity Form integration</label>";
-  echo "<input name='gosquared_gravity_forms' id='gosquared_gravity_forms' type='checkbox' value= '1'" . checked(1, $this->GSOF_get( 'gosquared_gravity_forms' ), false) . "/>";
+  echo "<input name='gosquared_gravity_forms' id='gosquared_gravity_forms' type='checkbox' value= '1'" . checked(1, $this->GSOF_get( 'GSOF_gosquared_gravity_forms' ), false) . "/>";
   echo "<p class='description'>With the GoSquared Gravity Forms integration enabled, you'll be able to track any leads captured through Gravity Forms</p>";
   } else {
   echo "<p class='gsGFform'> Looking to capture leads through forms on your site? Add the <a href='https://www.gravityforms.com/' target='#'> Gravity Forms</a> plugin to enable our integration.</p>";
