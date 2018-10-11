@@ -1,6 +1,6 @@
 <?php
 
-class GoSquaredGFIntegration {
+class GSOF_GoSquaredGFIntegration {
 
   private $project_token;
 
@@ -14,7 +14,7 @@ class GoSquaredGFIntegration {
     $this->project_token = $project_token;
     $this->properties['custom']=array();
 
-    add_action( 'gform_after_submission',  array($this, 'send'), 10, 2 );
+    add_action( 'gform_after_submission',  array($this, 'GSOF_send'), 10, 2 );
     $this->standard_props = array(
         'Email' => 'email',
         'Name'=> 'name',
@@ -30,7 +30,7 @@ class GoSquaredGFIntegration {
     $this->valid_types = array('text', 'website', 'phone', 'number', 'date', 'time', 'name', 'address', 'email', 'username');
   }
 
-  public function map_properties($entry, $form_input) {
+  public function GSOF_map_properties($entry, $form_input) {
     if (isset($entry[$form_input['id']]) && $entry[$form_input['id']] != "") {
     if(isset( $this->standard_props[$form_input['label']] )) {
       $label = $this->standard_props[$form_input['label']];
@@ -42,7 +42,7 @@ class GoSquaredGFIntegration {
     return($this->properties);
   }
 
-  public function send($entry, $form) {
+  public function GSOF_send($entry, $form) {
     $fields = $form['fields'];
       foreach($fields as $f) {
         if ($f['type']==='creditcard' || $f['type']==='password' ) {
@@ -51,10 +51,10 @@ class GoSquaredGFIntegration {
         if (in_array($f['type'], $this->valid_types)) {
         if (is_array($f["inputs"])) {
           foreach($f["inputs"] as $input) {
-            $this->map_properties($entry, $input);
+            $this->GSOF_map_properties($entry, $input);
           }
         }
-        $this->map_properties($entry, $f);
+        $this->GSOF_map_properties($entry, $f);
           if ($f['type']==='email' && $entry[$f['id']] != ''){
             $this->properties['email'] = $entry[$f['id']];
           }

@@ -20,8 +20,8 @@ class GoSquaredOptionsPageTestClass extends \WP_Mock\Tools\TestCase {
 	}
 
   public function testSiteToken() {
-  $gsOfficialSettings = new GoSquaredOptionsPage;
-  $gsOfficialSettings ->site_token();
+  $gsOfficialSettings = new GSOF_GoSquaredOptionsPage;
+  $gsOfficialSettings ->GSOF_site_token();
   $validReponse=<<<EOD
 <label for='gosquared_site_token' class='gsLabel'>GoSquared Project Token: </label><input class='postform' type='text' name='gosquared_site_token' value='project_token' /><p class='description'>You can find your GoSquared Project Token the <a href='https://www.gosquared.com/setup/general' target='#'>Project Settings</a> of your GoSquared account.</p>
 EOD;
@@ -29,12 +29,12 @@ EOD;
   }
 
   public function testGosquaredIdentifyChecked() {
-  $gsOfficialSettings = new GoSquaredOptionsPage;
+  $gsOfficialSettings = new GSOF_GoSquaredOptionsPage;
   \WP_Mock::userFunction( 'get_option', array(
   'args' =>'gosquared_identify',
   'return' => '1',
   ));
-  $gsOfficialSettings->gosquared_identify();
+  $gsOfficialSettings->GSOF_gosquared_identify();
   $validReponse=<<<EOD
 <label for='gosquared_identify' class='gsLabel'>Enable user tracking:  </label><input name='gosquared_identify' id='gosquared_identify' type='checkbox' value= '1' checked="checked"/><p class='description'>With GoSquared user tracking enabled, you'll be able to track the online behaviour of your website's logged in users, within GoSquared People.</p>
 EOD;
@@ -42,12 +42,12 @@ EOD;
   }
 
   public function testGosquaredIdentifyUnchecked() {
-  $gsOfficialSettings = new GoSquaredOptionsPage;
+  $gsOfficialSettings = new GSOF_GoSquaredOptionsPage;
   \WP_Mock::userFunction( 'get_option', array(
   'args' =>'gosquared_identify',
   'return' => '0',
   ));
-  $gsOfficialSettings->gosquared_identify();
+  $gsOfficialSettings->GSOF_gosquared_identify();
   $validReponse=<<<EOD
 <label for='gosquared_identify' class='gsLabel'>Enable user tracking:  </label><input name='gosquared_identify' id='gosquared_identify' type='checkbox' value= '1'/><p class='description'>With GoSquared user tracking enabled, you'll be able to track the online behaviour of your website's logged in users, within GoSquared People.</p>
 EOD;
@@ -55,11 +55,11 @@ EOD;
   }
 
 	public function testGosquaredGravityNotEnabled() {
-	$gsOfficialSettings = new GoSquaredOptionsPage;
+	$gsOfficialSettings = new GSOF_GoSquaredOptionsPage;
 	\WP_Mock::userFunction( 'is_plugin_active', array(
 	'return'=>false,
 	));
-	$gsOfficialSettings->gosquared_gravity_forms();
+	$gsOfficialSettings->GSOF_gosquared_gravity_forms();
 	$validReponse=<<<EOD
 <p class='gsGFform'> Looking to capture leads through forms on your site? Add the <a href='https://www.gravityforms.com/' target='#'> Gravity Forms</a> plugin to enable our integration.</p><p class='description'>With the GoSquared Gravity Forms integration enabled, you'll be able to track any leads captured through Gravity Forms.</p>
 EOD;
@@ -67,7 +67,7 @@ EOD;
 	}
 
   public function testGosquaredGravityFormsUnchecked() {
-  $gsOfficialSettings = new GoSquaredOptionsPage;
+  $gsOfficialSettings = new GSOF_GoSquaredOptionsPage;
 	\WP_Mock::userFunction( 'is_plugin_active', array(
 	'return'=>true,
 	));
@@ -75,7 +75,7 @@ EOD;
   'args' =>'gosquared_gravity_forms',
   'return' => '0',
   ));
-  $gsOfficialSettings->gosquared_gravity_forms();
+  $gsOfficialSettings->GSOF_gosquared_gravity_forms();
   $validReponse=<<<EOD
 <label for='gosquared_gravity_forms' class='gsLabel'>Enable Gravity Form integration</label><input name='gosquared_gravity_forms' id='gosquared_gravity_forms' type='checkbox' value= '1'/><p class='description'>With the GoSquared Gravity Forms integration enabled, you'll be able to track any leads captured through Gravity Forms</p>
 EOD;
@@ -86,12 +86,12 @@ EOD;
 	\WP_Mock::userFunction( 'is_plugin_active', array(
 		'return'=>true,
 	));
-  $gsOfficialSettings = new GoSquaredOptionsPage;
+  $gsOfficialSettings = new GSOF_GoSquaredOptionsPage;
   $gosquared_gravity_forms= \WP_Mock::userFunction( 'get_option', array(
   'args' =>'gosquared_gravity_forms',
   'return' => 1,
   ));
-  $gsOfficialSettings->gosquared_gravity_forms();
+  $gsOfficialSettings->GSOF_gosquared_gravity_forms();
   $validReponse=<<<EOD
 <label for='gosquared_gravity_forms' class='gsLabel'>Enable Gravity Form integration</label><input name='gosquared_gravity_forms' id='gosquared_gravity_forms' type='checkbox' value= '1' checked="checked"/><p class='description'>With the GoSquared Gravity Forms integration enabled, you'll be able to track any leads captured through Gravity Forms</p>
 EOD;
