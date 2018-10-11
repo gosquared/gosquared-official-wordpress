@@ -10,3 +10,5 @@ WP_Mock::bootstrap();
  * should be files that define the functions and classes you're going to test.
  */
 require_once __DIR__ . '../../gosquared-official.php';
+require_once __DIR__ . '../../includes/gosquared-official-gravity-forms-integration.php';
+require_once __DIR__ . '../../includes/gosquared-official-options.php';

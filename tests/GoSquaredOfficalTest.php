@@ -14,26 +14,26 @@ class GoSquaredOfficalTestClass extends \WP_Mock\Tools\TestCase {
 		'return' => $current_user,
 		));
 		\WP_Mock::userFunction( 'get_option', array(
-		'args' =>'gosquared_site_token',
+		'args' =>'GSOF_gosquared_site_token',
 		'return' => 'project_token',
 		));
 	}
 
 	public function testGSSnippet() {
-		$gsOfficial = new GoSquaredOfficial();
-		$gsOfficial->gsOfficialSettings = new GoSquaredOptionsPage;
+		$gsOfficial = new GSOF_GoSquaredOfficial();
+		$gsOfficial->gsOfficialSettings = new GSOF_GoSquaredOptionsPage;
 		$validReponse="<script>!function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.insertBefore(d,q)}(window,document,'script','_gs');_gs('project_token');</script>";
 		$this->expectOutputString($validReponse);
-		$gsOfficial -> gs_snippet();
+		$gsOfficial -> GSOF_gs_snippet();
 	}
 
 	public function testAddIdentify() {
-		$gsOfficial = new GoSquaredOfficial();
+		$gsOfficial = new GSOF_GoSquaredOfficial();
 		$validReponse=<<<EOD
 _gs('identify',{"custom":{"username":"username"},"email":"user@gosquared.com","first_name":"user","last_name":"name"})
 EOD;
 		$this->expectOutputString($validReponse);
-		$gsOfficial -> add_identify();
+		$gsOfficial -> GSOF_add_identify();
 	}
 
 	public function tearDown() {
