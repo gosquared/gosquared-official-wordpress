@@ -36,10 +36,10 @@ if ( ! defined ( 'ABSPATH' ) ) {
 class GSOF_GoSquaredOfficial
 {
 	function __construct() {
-		add_action( 'plugins_loaded', array( $this, 'load_tracker' ) );
+		add_action( 'plugins_loaded', array( $this, 'GSOF_load_tracker' ) );
 	}
 
-	function load_tracker() {
+	function GSOF_load_tracker() {
 
 	require_once 'includes/gosquared-official-options.php';
 	require_once 'includes/gosquared-official-gravity-forms-integration.php';
@@ -48,11 +48,12 @@ class GSOF_GoSquaredOfficial
 
 	add_action( 'wp_head', array( $this, 'GSOF_gs_snippet' ) );
 
-	$this->project_token = $this->gsOfficialSettings->GSOF_get( 'gosquared_site_token' );
-		if( 1 == absint( $this->gsOfficialSettings->GSOF_get( 'gosquared_identify' ) ) ) {
+	$this->project_token = $this->gsOfficialSettings->GSOF_get( 'GSOF_gosquared_site_token' );
+
+		if( 1 == absint( $this->gsOfficialSettings->GSOF_get( 'GSOF_gosquared_identify' ) ) ) {
  	  	add_action( 'gosquared_identify_snippet', array( $this, 'GSOF_add_identify' ) );
   	}
-		if( 1 == absint( $this->gsOfficialSettings->GSOF_get( 'gosquared_gravity_forms' ) ) ) {
+		if( 1 == absint( $this->gsOfficialSettings->GSOF_get( 'GSOF_gosquared_gravity_forms' ) ) ) {
 			$this->gsGfint = new GSOF_GoSquaredGFIntegration($this->project_token);
 	 }
 	}
@@ -62,7 +63,7 @@ class GSOF_GoSquaredOfficial
     echo  "arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];";
     echo  "d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.";
     echo  "insertBefore(d,q)}(window,document,'script','_gs');";
-		echo	"_gs('" . $this->gsOfficialSettings->GSOF_get( 'gosquared_site_token' ) . "');";
+		echo	"_gs('" . $this->gsOfficialSettings->GSOF_get( 'GSOF_gosquared_site_token' ) . "');";
 	  do_action( 'gosquared_identify_snippet' );
   	echo  "</script>";
 	 }

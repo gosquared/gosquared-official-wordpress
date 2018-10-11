@@ -14,7 +14,7 @@ class GoSquaredOfficalTestClass extends \WP_Mock\Tools\TestCase {
 		'return' => $current_user,
 		));
 		\WP_Mock::userFunction( 'get_option', array(
-		'args' =>'gosquared_site_token',
+		'args' =>'GSOF_gosquared_site_token',
 		'return' => 'project_token',
 		));
 	}

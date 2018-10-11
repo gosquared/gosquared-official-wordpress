@@ -25,7 +25,7 @@ class GSOF_GoSquaredOptionsPage {
 public function GSOF_settings_page(){
     register_setting( 'gosquared_official_settings_group', 'GSOF_gosquared_site_token' );
     register_setting( 'gosquared_official_settings_group', 'GSOF_gosquared_identify' );
-    register_setting( 'gosquared_official_settings_group', 'GSOF_gosquared_gravity_forms' );    
+    register_setting( 'gosquared_official_settings_group', 'GSOF_gosquared_gravity_forms' );
 }
 
  public function GSOF_get( $key ) {
