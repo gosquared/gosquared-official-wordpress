@@ -110,7 +110,7 @@ public function GSOF_gosquared_gravity_forms() {
 }
 
 public function GSOF_display_gosquared_link(){
-  if ($this->get( 'gosquared_site_token' )){
+  if ($this->GSOF_get( 'gosquared_site_token' )){
   $token = esc_attr( $this->GSOF_get( 'gosquared_site_token' ));
   echo "<p class='gsDashboardLink'>View your <a href='https://www.gosquared.com/now/" . $token . "' target='#'>GoSquared Dashboard</a></h3>";
   }
