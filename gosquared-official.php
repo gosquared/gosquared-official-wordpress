@@ -54,7 +54,7 @@ class GSOF_GoSquaredOfficial
   	}
 		if( 1 == absint( $this->gsOfficialSettings->GSOF_get( 'gosquared_gravity_forms' ) ) ) {
 			$this->gsGfint = new GSOF_GoSquaredGFIntegration($this->project_token);
-		}
+	 }
 	}
 	 function GSOF_gs_snippet()  {
     echo "<script>";
@@ -84,11 +84,12 @@ class GSOF_GoSquaredOfficial
 
 if ( class_exists( 'GSOF_GoSquaredOfficial' ) ) {
 	$gsOfficial = new GSOF_GoSquaredOfficial();
-	function my_plugin_action_links( $links ) {
-	$links = array_merge( array(
-		'<a href="' . esc_url( admin_url( '/options-general?page=gosquared-official-plugin.php' ) ) . '">' . __( 'Settings', 'textdomain' ) . '</a>'
-	), $links );
-	return $links;
-	}
-	add_action( 'plugin_action_links_gosquared-official-wordpress/gosquared-official.php', 'my_plugin_action_links' );
  }
+
+ function GSOF_plugin_action_links( $links ) {
+ $links = array_merge( array(
+	 '<a href="' . esc_url( admin_url( '/options-general?page=gosquared-official-plugin.php' ) ) . '">' . __( 'Settings', 'textdomain' ) . '</a>'
+ ), $links );
+ return $links;
+ }
+ add_action( 'plugin_action_links_gosquared-official-wordpress/gosquared-official.php', 'GSOF_plugin_action_links' );

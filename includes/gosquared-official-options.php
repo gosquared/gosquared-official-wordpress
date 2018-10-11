@@ -34,21 +34,21 @@ public function GSOF_settings_page(){
       'gosquared-official-plugin'
     );
     add_settings_field(
-  		'gosquared_site_token',
+  		'GSOF_gosquared_site_token',
   		'GoSquared Project Token',
   	 	 array( $this, 'GSOF_site_token' ),
   		'gosquared-official-plugin',
   		'gosquared_settings_section'
   	);
     add_settings_field(
-      'gosquared_identify',
+      'GSOF_gosquared_identify',
       'Activate user tracking',
        array( $this, 'GSOF_gosquared_identify' ),
       'gosquared-official-plugin',
       'gosquared_settings_section'
     );
       add_settings_field(
-        'gosquared_gravity_forms',
+        'GSOF_gosquared_gravity_forms',
         'Activate GoSquared Gravity Forms Integration',
          array( $this, 'GSOF_gosquared_gravity_forms' ),
         'gosquared-official-plugin',
