@@ -89,7 +89,7 @@ if ( class_exists( 'GSOF_GoSquaredOfficial' ) ) {
 
  function GSOF_plugin_action_links( $links ) {
  $links = array_merge( array(
-	 '<a href="' . esc_url( admin_url( '/options-general?page=gosquared-official-plugin.php' ) ) . '">' . __( 'Settings', 'textdomain' ) . '</a>'
+	 '<a href="' . esc_url( admin_url( '/options-general.php?page=gosquared-official-plugin.php' ) ) . '">' . __( 'Settings', 'textdomain' ) . '</a>'
  ), $links );
  return $links;
  }
