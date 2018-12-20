@@ -2,7 +2,7 @@
 Contributors: (russellvaughan)
 Tags: analytics, live chat, lead capture, gosquared, chat, stats
 Requires at least: 4.2.0
-Tested up to: 4.98
+Tested up to: 5.0.2
 Requires PHP: 5.2.4
 Stable tag: 0.10
 License: GPLv2 or later
