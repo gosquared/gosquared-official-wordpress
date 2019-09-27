@@ -25,6 +25,7 @@ class GSOF_GoSquaredOptionsPage {
 public function GSOF_settings_page(){
     register_setting( 'gosquared_official_settings_group', 'GSOF_gosquared_site_token' );
     register_setting( 'gosquared_official_settings_group', 'GSOF_gosquared_identify' );
+    register_setting( 'gosquared_official_settings_group', 'GSOF_gosquared_badge' );
     register_setting( 'gosquared_official_settings_group', 'GSOF_gosquared_gravity_forms' );
 }
 
@@ -48,6 +49,9 @@ public function GSOF_settings_page(){
          </div>
          <div class="gsOptions">
           <?php $this->GSOF_gosquared_gravity_forms(); ?>
+         </div>
+         <div class="gsOptions">
+          <?php $this->GSOF_gosquared_badge(); ?>
          </div>
           <?php submit_button(); ?>
       </form>
@@ -86,6 +90,12 @@ public function GSOF_display_gosquared_link(){
   $token = esc_attr( $this->GSOF_get( 'GSOF_gosquared_site_token' ));
   echo "<p class='gsDashboardLink'>View your <a href='https://www.gosquared.com/now/" . $token . "' target='#'>GoSquared Dashboard</a></h3>";
   }
+}
+
+public function GSOF_gosquared_badge() {
+echo "<label for='GSOF_gosquared_badge' class='gsLabel'>Enable GoSquared Badge:  </label>";
+echo "<input name='GSOF_gosquared_badge' id='GSOF_gosquared_badge' type='checkbox' value= '1'" . checked(1, $this->GSOF_get( 'GSOF_gosquared_badge' ), false) . "/>";
+echo "<p class='description'>With the GoSquared badge installed, you'll be able to track an additional 10,000 pageviews each month, for free!</p>";
 }
 
 }

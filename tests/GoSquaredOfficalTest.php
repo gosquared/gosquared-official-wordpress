@@ -36,6 +36,16 @@ EOD;
 		$gsOfficial -> GSOF_add_identify();
 	}
 
+	public function testGoSquaredBadge() {
+		$gsOfficial = new GSOF_GoSquaredOfficial();
+		$gsOfficial->gsOfficialSettings = new GSOF_GoSquaredOptionsPage;
+		$validReponse=<<<EOD
+<a href='https://www.gosquared.com/analytics/?utm_campaign=badge&utm_source=project_token'><img src='https://stats.gs/badge' style='padding-left:10px;' alt='Analytics by GoSquared'/></a>
+EOD;
+		$this->expectOutputString($validReponse);
+		$gsOfficial -> GSOF_add_badge();
+	}
+
 	public function tearDown() {
 		\WP_Mock::tearDown();
 	}

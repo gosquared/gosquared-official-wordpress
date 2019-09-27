@@ -53,6 +53,9 @@ class GSOF_GoSquaredOfficial
 		if( 1 == absint( $this->gsOfficialSettings->GSOF_get( 'GSOF_gosquared_identify' ) ) ) {
  	  	add_action( 'gosquared_identify_snippet', array( $this, 'GSOF_add_identify' ) );
   	}
+		if( 1 == absint( $this->gsOfficialSettings->GSOF_get( 'GSOF_gosquared_badge' ) ) ) {
+			add_action( 'wp_footer', array( $this, 'GSOF_add_badge' ) );
+		}
 		if( 1 == absint( $this->gsOfficialSettings->GSOF_get( 'GSOF_gosquared_gravity_forms' ) ) ) {
 			$this->gsGfint = new GSOF_GoSquaredGFIntegration($this->project_token);
 	 }
@@ -67,6 +70,10 @@ class GSOF_GoSquaredOfficial
 	  do_action( 'gosquared_identify_snippet' );
   	echo  "</script>";
 	 }
+
+	 function GSOF_add_badge()  {
+		echo "<a href='https://www.gosquared.com/analytics/?utm_campaign=badge&utm_source=" . $this->gsOfficialSettings->GSOF_get( 'GSOF_gosquared_site_token' ) . "'><img src='https://stats.gs/badge' style='padding-left:10px;' alt='Analytics by GoSquared'/></a>";
+	}
 
 	public function GSOF_add_identify() {
 		$current_user=wp_get_current_user();
