@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: (russellvaughan)
-Tags: analytics, live chat, lead capture, gosquared, chat, stats
+Tags: analytics, chat, gosquared, lead capture, live chat, marketing automation, CRM, profile enrichment, email, in-app messaging, email marketing
 Requires at least: 4.2.0
 Tested up to: 5.0.2
 Requires PHP: 5.2.4
@@ -12,11 +12,15 @@ This is the official Wordpress plugin for GoSquared. The leading software platfo
 
 == Description ==
 
-GoSquared is the behavioural marketing platform for growing your Wordpress website.
+GoSquared is an all-in-one growth platform for your WordPress website.
 
-Discover what's happening on your Wordpress site with GoSquared Analytics.
+Convert visitors into leads, close more sales, run nurture campaigns and measure your business' growth.
+
+The GoSquared platform includes Website Analytics, Live Chat, Marketing Automation and CRM.
+
+Discover what's happening on your WordPress site with GoSquared Analytics.
   - Get a simple but powerful overview of your website traffic, in real-time.
-  - Understand each visitor's behaviour from the moment they land onyour website. Quickly identify data such as:
+  - Understand each visitor's behaviour from the moment they land on your website. Quickly identify data such as:
     - What is your best performing content?
     - Which sites/campaigns are driving people to your website?
     - How engaged are your website visitors?
@@ -26,10 +30,22 @@ Capture more leads and start conversations with GoSquared Assistant.
   - Use live chat to engage with visitors in the moment.
   - Gather feedback from website visitors that you'd never otherwise see.
   - Intelligently nudge visitors to specific pages based on their behaviour and activity.
+  - Provide customer support with your team from a centralised Inbox.
 
-Convert more customers with GoSquared Automation.
-  - Connect your Gravity Forms to collect powerful lead analytics for every prospect.
+Convert and nurture customers with GoSquared Automation.
+  - Use email and in-app messages to build onboarding.
   - Automate messages and follow up based on each user's behaviour.
+  - Engage with leads in-product, rather than via cold email or over the phone.
+  - Drive upsells at the perfect time.
+  - Provide relevant customer support.
+  - Engage with customers to drive loyalty.
+  - Connect your Gravity Forms to collect powerful lead analytics for every prospect.
+
+Personalise your customer's experience and increase sales with GoSquared Customer Data Hub.
+  - Find the actions people are taking in your app. Track every event triggered by every user, in real-time.
+  - Segment users easily, save and build groups such as "Latest Signups", "New Customers", or "Users likely to Churn".
+  - View a unified profile - single customer view, combining activity across all devices, and information from external tools.
+
 
 == Installation ==
 
@@ -47,7 +63,7 @@ Not using GoSquared yet? Join tens of thousands of people and [sign up for a fre
 
 == Screenshots ==
 
-1. The GoSquared behavioural marketing platform for Wordpress. Understand your website visitors, capture more leads, and drive more conversations and customers.
+1. GoSquared is an all-in-one growth platform for your WordPress website. Understand your website visitors, capture more leads, and drive more conversations and customers.
 2. GoSquared Visitors. A real-time view of your online website visitors.
 3. GoSquared Analytics. Your 'ready-to-go' analytics dashboard. No configuration needed. The curated insights you need delivered to you in real-time.
 4. GoSquared Assistant. The intelligent messaging widget to help you engage and capture more leads through your Wordpress site.
