@@ -3,22 +3,39 @@
 
 # The GoSquared Official Wordpress plugin.
 
-GoSquared is the behavioural marketing platform for growing your Wordpress website.
+GoSquared is an all-in-one growth platform for your WordPress website.
 
-Discover what's happening on your Wordpress site with GoSquared Analytics.
-  - Get a simple but powerful overview of your website traffic, in real-time
-  - Understand each visitors behaviour from the moment they land your website.  Quickly identify data such as:
-    - What is your best performing content.
-    - Which sites/campaigns are driving traffic to your website.
-    - How engaged your website visitors are.
+Convert visitors into leads, close more sales, run nurture campaigns and measure your business' growth.
 
-Capture more leads with the GoSquared Assistant
-  - Use intelligent prompts to deliver proactive messages to your users at the right time.
-  - Use live chat to engage visitors to give feedback or learn more about your website.
+The GoSquared platform includes Website Analytics, Live Chat, Marketing Automation and CRM.
 
-Convert more customers with GoSquared Automation
-  - Connect your Gravity Forms to collect important lead analytics for every prospect.
-  - Automate messages and follow up based on each users behaviour.
+Discover what's happening on your WordPress site with GoSquared Analytics.
+  - Get a simple but powerful overview of your website traffic, in real-time.
+  - Understand each visitor's behaviour from the moment they land on your website. Quickly identify data such as:
+    - What is your best performing content?
+    - Which sites/campaigns are driving people to your website?
+    - How engaged are your website visitors?
+
+Capture more leads and start conversations with GoSquared Assistant.
+  - Use intelligent prompts to deliver proactive messages to your visitors at the perfect time.
+  - Use live chat to engage with visitors in the moment.
+  - Gather feedback from website visitors that you'd never otherwise see.
+  - Intelligently nudge visitors to specific pages based on their behaviour and activity.
+  - Provide customer support with your team from a centralised Inbox.
+
+Convert and nurture customers with GoSquared Automation.
+  - Use email and in-app messages to build onboarding.
+  - Automate messages and follow up based on each user's behaviour.
+  - Engage with leads in-product, rather than via cold email or over the phone.
+  - Drive upsells at the perfect time.
+  - Provide relevant customer support.
+  - Engage with customers to drive loyalty.
+  - Connect your Gravity Forms to collect powerful lead analytics for every prospect.
+
+Personalise your customer's experience and increase sales with GoSquared Customer Data Hub.
+  - Find the actions people are taking in your app. Track every event triggered by every user, in real-time.
+  - Segment users easily, save and build groups such as "Latest Signups", "New Customers", or "Users likely to Churn".
+  - View a unified profile - single customer view, combining activity across all devices, and information from external tools.
 
 # Installation
 

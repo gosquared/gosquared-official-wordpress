@@ -7,7 +7,7 @@
 Plugin Name: GoSquared - Marketing Automation, CRM, Analytics and Live Chat for WordPress
 Plugin URI: https://github.com/gosquared/gosquared-official-wordpress
 Description: This is the official GoSquared Plugin for analytics, live chat and lead capture.
-Version: 1.1.7
+Version: 1.1.8
 Author: GoSquared
 License: GPLv2 or later
 Text Domain: GoSquared-Offical
