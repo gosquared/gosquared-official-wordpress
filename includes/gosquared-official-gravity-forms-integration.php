@@ -27,7 +27,7 @@ class GSOF_GoSquaredGFIntegration {
         'Company Industry' => 'company_industry',
         'Job Title' => 'company_position',
     );
-    $this->valid_types = array('text', 'website', 'phone', 'number', 'date', 'time', 'name', 'address', 'email', 'username');
+    $this->valid_types = array('text', 'website', 'phone', 'number', 'date', 'time', 'name', 'address', 'email', 'username', 'radio', 'checkbox', 'hidden', 'select');
   }
 
   public function GSOF_map_properties($entry, $form_input) {
