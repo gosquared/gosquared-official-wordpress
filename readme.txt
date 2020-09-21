@@ -2,7 +2,7 @@
 Contributors: (russellvaughan)
 Tags: analytics, chat, gosquared, lead capture, live chat, marketing automation, CRM, profile enrichment, email, in-app messaging, email marketing
 Requires at least: 4.2.0
-Tested up to: 5.5.0
+Tested up to: 5.5.1
 Requires PHP: 5.2.4
 Stable tag: 0.10
 License: GPLv2 or later
