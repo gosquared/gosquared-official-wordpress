@@ -45,6 +45,13 @@ Personalise your customer's experience and increase sales with GoSquared Custome
 4. If you would like to track the website behaviour of your logged in users, make sure the 'Enable user tracking' checkbox is checked.
 5. If you have Gravity Forms installed and you would like to track the website behaviour of leads captured through Gravity Forms,  ensure the Enable 'Gravity Form integration' checkbox is checked.
 
+# Changelog
+
+ 1.3.0
+
+- Update GoSquared snippet Cloudfront file from tracker.js to gosquared.js to avoid being unintentionally blocked by generic tracking blocker filters.
+- Tested on Wodpress version 5.7.2.
+
 # Tests
 
 ```composer install```
