@@ -7,7 +7,7 @@
 Plugin Name: GoSquared - Marketing Automation, CRM, Analytics and Live Chat for WordPress
 Plugin URI: https://github.com/gosquared/gosquared-official-wordpress
 Description: This is the official GoSquared Plugin for analytics, live chat and lead capture.
-Version: 1.2.0
+Version: 1.3.0
 Author: GoSquared
 License: GPLv2 or later
 Text Domain: GoSquared-Offical
@@ -61,7 +61,7 @@ class GSOF_GoSquaredOfficial
     echo "<script>";
     echo "!function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(";
     echo  "arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];";
-    echo  "d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.";
+    echo  "d.src='//d1l6p2sc9645hc.cloudfront.net/gosquared.js';q.parentNode.";
     echo  "insertBefore(d,q)}(window,document,'script','_gs');";
 		echo	"_gs('" . $this->gsOfficialSettings->GSOF_get( 'GSOF_gosquared_site_token' ) . "');";
 	  do_action( 'gosquared_identify_snippet' );

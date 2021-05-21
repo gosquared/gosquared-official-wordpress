@@ -2,7 +2,7 @@
 Contributors: (russellvaughan)
 Tags: analytics, chat, gosquared, lead capture, live chat, marketing automation, CRM, profile enrichment, email, in-app messaging, email marketing
 Requires at least: 4.2.0
-Tested up to: 5.5.1
+Tested up to: 5.7.2
 Requires PHP: 5.2.4
 Stable tag: 0.10
 License: GPLv2 or later
@@ -46,6 +46,11 @@ Personalise your customer's experience and increase sales with GoSquared Custome
   - Segment users easily, save and build groups such as "Latest Signups", "New Customers", or "Users likely to Churn".
   - View a unified profile - single customer view, combining activity across all devices, and information from external tools.
 
+== Changelog ==
+
+= 1.3.0 =
+* Update GoSquared snippet Cloudfront file from tracker.js to gosquared.js to avoid being unintentionally blocked by generic tracking blocker filters.
+* Tested on Wodpress version 5.7.2.
 
 == Installation ==
 
