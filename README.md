@@ -47,6 +47,10 @@ Personalise your customer's experience and increase sales with GoSquared Custome
 
 # Changelog
 
+ 1.3.1
+
+- Tested on Wodpress version 6.3.0.
+
  1.3.0
 
 - Update GoSquared snippet Cloudfront file from tracker.js to gosquared.js to avoid being unintentionally blocked by generic tracking blocker filters.
